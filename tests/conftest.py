@@ -88,4 +88,3 @@ def pytest_runtest_makereport(item, call):
                 html += " align='right'/></div>"
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
-#new
