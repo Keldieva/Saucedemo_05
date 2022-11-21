@@ -43,9 +43,6 @@ jobs:
       #----------------------------------------------
       #  -----  install browsers  -----
       #----------------------------------------------
-  browser_installation:
-    runs-on: ubuntu-latest
-    steps:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
       - name: Install Firefox
