@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  selenium_test:
+  set_up:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
@@ -43,6 +43,9 @@ jobs:
       #----------------------------------------------
       #  -----  install browsers  -----
       #----------------------------------------------
+  browser_installation:
+    runs-on: ubuntu-latest
+    steps:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
       - name: Install Firefox
