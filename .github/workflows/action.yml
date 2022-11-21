@@ -46,7 +46,7 @@ jobs:
       #----------------------------------------------
       #  -----  install browsers  -----
       #----------------------------------------------
-  browser_installation and dependencies:
+  browser_dependencies:
     runs-on: ubuntu-latest
     steps:
       - name: Install Chrome
