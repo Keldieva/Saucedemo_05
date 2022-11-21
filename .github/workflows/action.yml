@@ -1,5 +1,7 @@
 name: selenium_test
 on: [push, pull_request]
+  schedule:
+    -cron: '* 0 * * * '
 
 permissions:
   checks: write
@@ -7,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  selenium_test:
+  set-up:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
@@ -16,6 +18,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+  linting:
+    runs-on: ubuntu-latest
+    steps:
       - name: Check code for errors by flake8 and format code with black
         uses: ricardochaves/python-lint@v1.4.0
         with:
@@ -37,7 +42,10 @@ jobs:
       #----------------------------------------------
       #  -----  install browsers  -----
       #----------------------------------------------
-      - name: Install Chrome 
+  browser_installation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
       - name: Install Firefox
         uses: riccione/setup_firefox@v1
@@ -47,6 +55,9 @@ jobs:
       #----------------------------------------------
       #  -----  install & configure poetry  -----
       #----------------------------------------------
+  dependencies:
+    runs-on: ubuntu-latest
+    steps:
       - name: Install Poetry
         uses: snok/install-poetry@v1
         with:
@@ -77,6 +88,9 @@ jobs:
       #----------------------------------------------
       #              run test suite
       #----------------------------------------------
+  running_tests:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run tests
         run: |
           source .venv/bin/activate
