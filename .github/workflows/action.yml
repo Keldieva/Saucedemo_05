@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  set_up:
+  selenium_test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
