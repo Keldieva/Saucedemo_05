@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '* 1 * * *'
+    - cron: '*/5 * * * *'
 
 permissions:
   checks: write
@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  selenium_test:
+  set_up:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
