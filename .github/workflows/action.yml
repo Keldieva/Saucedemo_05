@@ -7,9 +7,7 @@ on:
   schedule:
     - cron: '*/5 * * * *'
       displayName: Daily Check
-      branches:
-        include: [main]
-      always: true
+      branches: [main]
 
 permissions:
   checks: write
