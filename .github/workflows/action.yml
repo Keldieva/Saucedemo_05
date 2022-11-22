@@ -2,8 +2,13 @@ name: selenium_test
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   schedule:
     - cron: '*/5 * * * *'
+      displayName: Daily Check
+      branches: [main]
+
 
 permissions:
   checks: write
