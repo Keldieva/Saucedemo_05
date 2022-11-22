@@ -46,10 +46,6 @@ jobs:
       #----------------------------------------------
       #  -----  install browsers  -----
       #----------------------------------------------
-  browsers_dependencies:
-    runs-on: ubuntu-latest
-    needs: [set_up, lint]
-    steps:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@latest
       - name: Install Firefox
